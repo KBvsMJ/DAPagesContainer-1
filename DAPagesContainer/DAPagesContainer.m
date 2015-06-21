@@ -75,7 +75,6 @@
                                                                      self.topBarHeight,
                                                                      CGRectGetWidth(self.view.frame),
                                                                      CGRectGetHeight(self.view.frame) - self.topBarHeight)];
-    self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.scrollEnabled = NO;
@@ -157,7 +156,6 @@
             }
             self.scrollView.contentSize = CGSizeMake(self.scrollWidth * self.viewControllers.count, self.scrollHeight);
             [self.scrollView setContentOffset:CGPointMake(selectedIndex * self.scrollWidth, 0.) animated:NO];
-            self.scrollView.userInteractionEnabled = YES;
             self.shouldObserveContentOffset = YES;
         }];
     }
@@ -285,7 +283,6 @@
     self.pageIndicatorView.center = CGPointMake([self.topBar centerForSelectedItemAtIndex:self.selectedIndex].x,
                                                 self.pageIndicatorView.center.y);
     self.topBar.scrollView.contentOffset = [self.topBar contentOffsetForSelectedItemAtIndex:self.selectedIndex];
-    self.scrollView.userInteractionEnabled = YES;
 }
 
 
@@ -323,30 +320,4 @@
 {
     [self setSelectedIndex:index animated:NO];
 }
-
-#pragma mark - UIScrollView delegate
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    self.selectedIndex = scrollView.contentOffset.x / CGRectGetWidth(self.scrollView.frame);
-    self.scrollView.userInteractionEnabled = YES;
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    if (!decelerate) {
-        self.scrollView.userInteractionEnabled = YES;
-    }
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-    self.scrollView.userInteractionEnabled = YES;
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    self.scrollView.userInteractionEnabled = NO;
-}
-
 @end
