@@ -44,25 +44,21 @@
 -(NSArray *)viewcontrollers{
     UIViewController *beaverViewController = [[UIViewController alloc] init];
     UIImageView *beaverImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"beaver.jpg"]];
-    beaverImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [beaverViewController.view addSubview:beaverImageView];
     beaverViewController.title = @"第一个";
     
     UIViewController *buckDeerViewController = [[UIViewController alloc] init];
     UIImageView *buckDeerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"buckDeer.jpg"]];
-    buckDeerImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [buckDeerViewController.view addSubview:buckDeerImageView];
     buckDeerViewController.title = @"第二个";
     
     UIViewController *catViewController = [[UIViewController alloc] init];
     UIImageView *catImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cat.jpg"]];
-    catImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [catViewController.view addSubview:catImageView];
     catViewController.title = @"第三个";
     
     UIViewController *lionViewController = [[UIViewController alloc] init];
     UIImageView *lionImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lion.jpg"]];
-    lionImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [lionViewController.view addSubview:lionImageView];
     lionViewController.title = @"第四个";
 

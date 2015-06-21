@@ -86,7 +86,6 @@
                                                                            0.,
                                                                            CGRectGetWidth(self.view.frame),
                                                                            self.topBarHeight)];
-    self.topBar.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
     self.topBar.itemTitleColor = self.pageItemsTitleColor;
     self.topBar.delegate = self;
     [self.view addSubview:self.topBar];

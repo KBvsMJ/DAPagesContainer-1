@@ -27,7 +27,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-        self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.scrollView.showsHorizontalScrollIndicator = NO;
         [self addSubview:self.scrollView];
         self.font = [UIFont systemFontOfSize:14];
@@ -164,7 +163,6 @@
 {
     if (!_backgroundImageView) {
         _backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self insertSubview:_backgroundImageView belowSubview:self.scrollView];
     }
     return _backgroundImageView;
