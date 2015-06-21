@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic) DAPagesContainerTopBar *topBar;
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (weak,   nonatomic) UIScrollView *observingScrollView;
 @property (strong, nonatomic) UIView *pageIndicatorView;
 
 @property (          assign, nonatomic) BOOL shouldObserveContentOffset;
@@ -24,8 +23,6 @@
 @property (readonly, assign, nonatomic) CGFloat scrollHeight;
 
 - (void)layoutSubviews;
-- (void)startObservingContentOffsetForScrollView:(UIScrollView *)scrollView;
-- (void)stopObservingContentOffset;
 
 @end
 
@@ -54,7 +51,7 @@
 
 - (void)dealloc
 {
-    [self stopObservingContentOffset];
+    
 }
 
 - (void)setUp
@@ -84,7 +81,6 @@
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.scrollEnabled = NO;
     [self.view addSubview:self.scrollView];
-    [self startObservingContentOffsetForScrollView:self.scrollView];
     
     
     self.topBar = [[DAPagesContainerTopBar alloc] initWithFrame:CGRectMake(0.,
@@ -100,7 +96,6 @@
 
 - (void)viewDidUnload
 {
-    [self stopObservingContentOffset];
     self.scrollView = nil;
     self.topBar = nil;
     self.pageIndicatorView = nil;
@@ -322,19 +317,6 @@
 - (CGFloat)scrollWidth
 {
     return CGRectGetWidth(self.scrollView.frame);
-}
-
-- (void)startObservingContentOffsetForScrollView:(UIScrollView *)scrollView
-{
-    self.observingScrollView = scrollView;
-}
-
-- (void)stopObservingContentOffset
-{
-    if (self.observingScrollView) {
-        [self.observingScrollView removeObserver:self forKeyPath:@"contentOffset"];
-        self.observingScrollView = nil;
-    }
 }
 
 #pragma mark - DAPagesContainerTopBar delegate
