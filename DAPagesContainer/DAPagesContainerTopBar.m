@@ -33,7 +33,7 @@
         self.itemTitleColor = [UIColor whiteColor];
         
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(frame)-0.5, CGRectGetWidth([UIScreen mainScreen].bounds), 0.5)];
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = [UIColor colorWithRed:0xDD/255.0 green:0xDD/255.0 blue:0xDD/255.0 alpha:1.0];
         [self addSubview:lineView];
     }
     return self;
@@ -93,7 +93,7 @@
             CGFloat averageX = CGRectGetWidth([UIScreen mainScreen].bounds)/(count * 1.0);
             for (NSUInteger i = 0; i < lineCount; i++) {
                 UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.5, CGRectGetHeight(self.frame))];
-                lineView.backgroundColor = [UIColor lightGrayColor];
+                lineView.backgroundColor = [UIColor colorWithRed:0xDD/255.0 green:0xDD/255.0 blue:0xDD/255.0 alpha:1.0];
                 lineView.center = CGPointMake(averageX * (i + 1), lineView.center.y);
                 [self.scrollView addSubview:lineView];
             }
